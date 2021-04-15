@@ -246,7 +246,7 @@ namespace capadatos
         }
 
         //Método buscar proyecto por codigo
-        public DataTable buscarproyecto_codigo(DProyecto proyecto)
+        public DataTable buscarproyecto(DProyecto proyecto)
         {
             DataTable dtresultado = new DataTable("proyecto");
             SqlConnection SqlCon = new SqlConnection();
@@ -256,7 +256,7 @@ namespace capadatos
                 SqlCon.Open();
                 SqlCommand SqlCmd = new SqlCommand();
                 SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_proyecto_codigo";
+                SqlCmd.CommandText = "spbuscar_proyecto";
                 SqlCmd.CommandType = CommandType.StoredProcedure;
 
                 //Buscar proyecto por codigo
@@ -285,79 +285,7 @@ namespace capadatos
             return dtresultado;
         }
 
-        //Método buscar proyecto por titulo
-        public DataTable buscarproyecto_titulo(DProyecto proyecto)
-        {
-            DataTable dtresultado = new DataTable("proyecto");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_proyecto_titulo";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
 
-                //Buscar proyecto por codigo
-                SqlParameter ParTextobuscar = new SqlParameter();
-                ParTextobuscar.ParameterName = "@textobuscar";
-                ParTextobuscar.SqlDbType = SqlDbType.VarChar;
-                ParTextobuscar.Size = 50;
-                ParTextobuscar.Value = proyecto.Textobuscar;
-                SqlCmd.Parameters.Add(ParTextobuscar);
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
-                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-            return dtresultado;
-        }
-
-        //Método buscar proyecto por observaciones
-        public DataTable buscarproyecto_observaciones(DProyecto proyecto)
-        {
-            DataTable dtresultado = new DataTable("proyecto");
-            SqlConnection SqlCon = new SqlConnection();
-            try
-            {
-                SqlCon.ConnectionString = Conexion.cn;
-                SqlCon.Open();
-                SqlCommand SqlCmd = new SqlCommand();
-                SqlCmd.Connection = SqlCon;
-                SqlCmd.CommandText = "spbuscar_proyecto_observaciones";
-                SqlCmd.CommandType = CommandType.StoredProcedure;
-
-                //Buscar proyecto por codigo
-                SqlParameter ParTextobuscar = new SqlParameter();
-                ParTextobuscar.ParameterName = "@textobuscar";
-                ParTextobuscar.SqlDbType = SqlDbType.VarChar;
-                ParTextobuscar.Size = 50;
-                ParTextobuscar.Value = proyecto.Textobuscar;
-                SqlCmd.Parameters.Add(ParTextobuscar);
-
-                SqlDataAdapter sqladap = new SqlDataAdapter(SqlCmd);
-                sqladap.Fill(dtresultado);//es el que se encarga de rellenar nuestra tabla con el procedimiento almacenado
-            }
-            catch (Exception)
-            {
-                dtresultado = null;
-            }
-            finally
-            {
-                if (SqlCon.State == ConnectionState.Open) SqlCon.Close();
-
-            }
-            return dtresultado;
-        }
 
     }
 }

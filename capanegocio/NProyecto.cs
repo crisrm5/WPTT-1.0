@@ -45,25 +45,12 @@ namespace capanegocio
             return objeto.mostrarproyectos(objeto);
         }
 
-        public static DataTable buscarproyectoCodigo(String textobuscar)
+        public static DataTable buscarproyecto(String textobuscar)
         {
             DProyecto objeto = new DProyecto();
             objeto.Textobuscar = textobuscar;
-            return objeto.buscarproyecto_codigo(objeto);
+            return objeto.buscarproyecto(objeto);
         }
 
-        public static DataTable buscarproyectoTitulo(String textobuscar)
-        {
-            DProyecto objeto = new DProyecto();
-            objeto.Textobuscar = textobuscar;
-            return objeto.buscarproyecto_titulo(objeto);
-        }
-
-        public static DataTable buscarproyectoObservaciones(String textobuscar)
-        {
-            DProyecto objeto = new DProyecto();
-            objeto.Textobuscar = textobuscar;
-            return objeto.buscarproyecto_observaciones(objeto);
-        }
     }
 }

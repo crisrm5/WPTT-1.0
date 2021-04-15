@@ -15,6 +15,7 @@ namespace capapresentacion
     {
         bool esnuevo = false;
         bool esditar = false;
+        public string idproyecto = "";
         public FrmDetalleProyecto()
         {
             InitializeComponent();
@@ -33,7 +34,7 @@ namespace capapresentacion
         {
             this.txtIdProyecto.Text = string.Empty;
             this.txtTituloProyecto.Text = string.Empty;
-            this.txtTiempoTotalProyectos.Text = string.Empty;
+            this.txtProyecto.Text = string.Empty;
             //this.dtFechaProyecto.Text = string.Empty;
             this.txtObservacionesProyecto.Text = string.Empty;
         }
@@ -42,8 +43,8 @@ namespace capapresentacion
         {
             this.txtIdProyecto.ReadOnly = true;
             this.txtTituloProyecto.ReadOnly = !valor;
-            this.txtTiempoTotalProyectos.ReadOnly = !valor;
-            this.txtTiempoTotalProyectos.ReadOnly = !valor;
+            this.txtProyecto.ReadOnly = !valor;
+            this.txtProyecto.ReadOnly = !valor;
             // this.dtFechaProyecto.ResumeLayout();
             this.txtObservacionesProyecto.ReadOnly = !valor;
         }
@@ -143,12 +144,38 @@ namespace capapresentacion
             }
         }
 
+
         private void btnEditar_Click(object sender, EventArgs e)
         {
 
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIdProyecto_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        public void visualizaDatos(String id,String titulo,String codigo_proyecto, String observaciones,String fecha)
+        {
+            //txtIdProyecto.Text = idproyecto;
+            txtIdProyecto.Text = id;
+            txtProyecto.Text = codigo_proyecto;
+            txtObservacionesProyecto.Text = observaciones;
+            txtTituloProyecto.Text = titulo;
+            txtFecha.Text = fecha;
+        }
+
+        private void txtObservacionesProyecto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtFechaProyecto_ValueChanged(object sender, EventArgs e)
         {
 
         }

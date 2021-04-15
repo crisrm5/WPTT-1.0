@@ -27,7 +27,9 @@ namespace capapresentacion
             panelMenu.Controls.Add(panelIzquierdo);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             this.Text = string.Empty;
-            AbrirFormulario(new FrmProyectosl());
+            
+            
+            //AbrirFormulario(new FrmProyectosl());
 
 
 
@@ -121,141 +123,150 @@ namespace capapresentacion
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-           //mostrarproyectos();
-           //this.FormClosed += new FormClosedEventHandler(cerrarX);
-        }
-        /*
-        public void mostrarproyectos()
-        {
-             this.dataListProyectos.DataSource = NProyecto.mostrarproyectos();
-             this.ocultarcolumnas();
-            this.btnEliminarProyecto.Visible = true;
-            this.lblTotal.Text = "Número de proyectos: "+Convert.ToString(dataListProyectos.Rows.Count);
-        }
-
-        private void ocultarcolumnas()
-        {
-            this.dataListProyectos.Columns[0].Visible = false;
-            this.dataListProyectos.Columns[1].Visible = false;
-            this.btnEliminarProyecto.Enabled = false;
-            this.cbEliminar.Checked = false;
-
-        }
-                                          
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnEliminarProyecto_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                    DialogResult opcion;
-                    opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (opcion == DialogResult.OK)
-                    {
-                    int aux = 0;
-                        int id;
-                        string rpta = "";
-                        foreach (DataGridViewRow row in dataListProyectos.Rows)
-                        {                          
-                            if (Convert.ToBoolean(row.Cells[0].Value))
-                            {
-                            aux = 1;
-                            
-                            id = Convert.ToInt32(row.Cells[1].Value);
-                                rpta = NProyecto.eliminarproyecto(id);
-
-                                if (rpta.Equals("OK"))
-                                {
-                                    this.mensajeok("Registro eliminado");
-                                }
-                                else
-                                {
-                                    this.mensajeerror("¡Ups!, Al parecer tienes tareas asignadas a este proyecto...");
-                                    this.mensajeerror(rpta);
-                                }
-                        }                           
-                        }
-                    if (aux<1)
-                    {
-                        MessageBox.Show("No haz seleccionado ningún proyecto", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                    }
-                    this.mostrarproyectos();
-                }
-                else
-                {
-                    this.btnEliminarProyecto.Enabled = false;
-                    this.cbEliminar.Checked = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message + ex.StackTrace);
-            }
-        }
-
-        public void dataListProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == dataListProyectos.Columns["Eliminar"].Index)
-            {
-                DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListProyectos.Rows[e.RowIndex].Cells["Eliminar"];
-                chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
-            }
-        }
-
-        private void cbEliminar_CheckedChanged(object sender, EventArgs e)
-        {
-            if (this.cbEliminar.Checked)
-            {
-                this.dataListProyectos.Columns[0].Visible = true;
-                this.btnEliminarProyecto.Enabled = true;
-            }
-            else
-            {
-                this.dataListProyectos.Columns[0].Visible = false;
-                this.btnEliminarProyecto.Enabled = false;
-            }
-        }/*
-
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            FrmDetalleProyecto frmDP = new FrmDetalleProyecto();
-            frmDP.Show();
-            this.Hide();
-        }
-
-        private void cerrarX(object sender, EventArgs e)
-        {
-            System.Windows.Forms.Application.ExitThread();
-        }
-
-        private void widget_Click(object sender, EventArgs e)
-        {
-            Form1 widget = new Form1();
-            widget.Show();
-            this.Hide();
-        }
-
-        private void cboBuscarProyecto_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void convertirWidget()
-        {
-            MaximizeBox = false;
-            FormBorderStyle = FormBorderStyle.FixedDialog;
-            TopMost = true;
-            ShowInTaskbar = false;
-            this.Text = String.Empty;
-            this.ControlBox = false;
+            //mostrarproyectos();
             
-
+            //this.FormClosed += new FormClosedEventHandler(cerrarX);
         }
 
-        /*Utilizado para mover el panel atraves de la pantalla*/
+
+
+        internal void enviaDatos(String texto)
+        {
+            
+        }
+
+        /*
+public void mostrarproyectos()
+{
+    this.dataListProyectos.DataSource = NProyecto.mostrarproyectos();
+    this.ocultarcolumnas();
+   this.btnEliminarProyecto.Visible = true;
+   this.lblTotal.Text = "Número de proyectos: "+Convert.ToString(dataListProyectos.Rows.Count);
+}
+
+private void ocultarcolumnas()
+{
+   this.dataListProyectos.Columns[0].Visible = false;
+   this.dataListProyectos.Columns[1].Visible = false;
+   this.btnEliminarProyecto.Enabled = false;
+   this.cbEliminar.Checked = false;
+
+}
+
+private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+{
+
+}
+
+private void btnEliminarProyecto_Click(object sender, EventArgs e)
+{
+   try
+   {
+           DialogResult opcion;
+           opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+           if (opcion == DialogResult.OK)
+           {
+           int aux = 0;
+               int id;
+               string rpta = "";
+               foreach (DataGridViewRow row in dataListProyectos.Rows)
+               {                          
+                   if (Convert.ToBoolean(row.Cells[0].Value))
+                   {
+                   aux = 1;
+
+                   id = Convert.ToInt32(row.Cells[1].Value);
+                       rpta = NProyecto.eliminarproyecto(id);
+
+                       if (rpta.Equals("OK"))
+                       {
+                           this.mensajeok("Registro eliminado");
+                       }
+                       else
+                       {
+                           this.mensajeerror("¡Ups!, Al parecer tienes tareas asignadas a este proyecto...");
+                           this.mensajeerror(rpta);
+                       }
+               }                           
+               }
+           if (aux<1)
+           {
+               MessageBox.Show("No haz seleccionado ningún proyecto", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+           }
+           this.mostrarproyectos();
+       }
+       else
+       {
+           this.btnEliminarProyecto.Enabled = false;
+           this.cbEliminar.Checked = false;
+       }
+   }
+   catch (Exception ex)
+   {
+       MessageBox.Show(ex.Message + ex.StackTrace);
+   }
+}
+
+public void dataListProyectos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+{
+   if (e.ColumnIndex == dataListProyectos.Columns["Eliminar"].Index)
+   {
+       DataGridViewCheckBoxCell chkeliminar = (DataGridViewCheckBoxCell)dataListProyectos.Rows[e.RowIndex].Cells["Eliminar"];
+       chkeliminar.Value = !Convert.ToBoolean(chkeliminar.Value);
+   }
+}
+
+private void cbEliminar_CheckedChanged(object sender, EventArgs e)
+{
+   if (this.cbEliminar.Checked)
+   {
+       this.dataListProyectos.Columns[0].Visible = true;
+       this.btnEliminarProyecto.Enabled = true;
+   }
+   else
+   {
+       this.dataListProyectos.Columns[0].Visible = false;
+       this.btnEliminarProyecto.Enabled = false;
+   }
+}/*
+
+private void btnNuevo_Click(object sender, EventArgs e)
+{
+   FrmDetalleProyecto frmDP = new FrmDetalleProyecto();
+   frmDP.Show();
+   this.Hide();
+}
+
+private void cerrarX(object sender, EventArgs e)
+{
+   System.Windows.Forms.Application.ExitThread();
+}
+
+private void widget_Click(object sender, EventArgs e)
+{
+   Form1 widget = new Form1();
+   widget.Show();
+   this.Hide();
+}
+
+private void cboBuscarProyecto_SelectedIndexChanged(object sender, EventArgs e)
+{
+
+}
+
+private void convertirWidget()
+{
+   MaximizeBox = false;
+   FormBorderStyle = FormBorderStyle.FixedDialog;
+   TopMost = true;
+   ShowInTaskbar = false;
+   this.Text = String.Empty;
+   this.ControlBox = false;
+
+
+}
+
+/*Utilizado para mover el panel atraves de la pantalla*/
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -271,37 +282,52 @@ namespace capapresentacion
         private void Proyectos_Click(object sender, EventArgs e)
         {
             ActivaBoton(sender, RGBColors.color1);
-            FrmProyectosl p = new FrmProyectosl();
-            p.frmparent = this;
-            AbrirFormulario(p);
+            FrmProyecto proyecto = new FrmProyecto();
+            proyecto.frmparent = this;
+            AbrirFormulario(proyecto);
+            
+            
         }
 
-        public void lanzarNuevoProyecto() {
-            AbrirFormulario(new FrmDetalleProyecto());
+        public void lanzarNuevoProyecto(Form formulario) {
+            //AbrirFormulario(new FrmDetalleProyecto());
+            AbrirFormulario(formulario);
         }
 
         private void Tareas_Click(object sender, EventArgs e)
         {
             ActivaBoton(sender, RGBColors.color1);
-            AbrirFormulario(new FrmDetalleTarea());
+            FrmTarea tareas = new FrmTarea();
+            tareas.frmparent = this;
+            AbrirFormulario(tareas);
+            //AbrirFormulario(new FrmTarea());
         }
 
         private void Subtareas_Click(object sender, EventArgs e)
         {
             ActivaBoton(sender, RGBColors.color1);
-            AbrirFormulario(new FrmDetalleSubtarea());
+            FrmTareasPersonales TareasPersonales = new FrmTareasPersonales();
+            TareasPersonales.frmparent = this;
+            AbrirFormulario(TareasPersonales);
+            //AbrirFormulario(new FrmDetalleSubtarea());
         }
 
         private void Aplicaciones_Click(object sender, EventArgs e)
         {
             ActivaBoton(sender, RGBColors.color1);
-            AbrirFormulario(new FrmDetalleAplicacion());
+            FrmAplicacion aplicacion = new FrmAplicacion();
+            aplicacion.frmparent = this;
+            AbrirFormulario(aplicacion);
+         
         }
 
         private void Tiempos_Click(object sender, EventArgs e)
         {
             ActivaBoton(sender, RGBColors.color1);
-            
+            FrmTiempos tiempos = new FrmTiempos();
+            tiempos.frmparent = this;
+            AbrirFormulario(tiempos);
+
         }
 
         private void iconPictureBox1_Click(object sender, EventArgs e)
@@ -351,5 +377,13 @@ namespace capapresentacion
             widget.Show();
             this.cierraForm();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+
+
     }
 }

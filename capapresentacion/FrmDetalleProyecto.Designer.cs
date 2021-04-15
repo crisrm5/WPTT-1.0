@@ -39,14 +39,15 @@ namespace capapresentacion
             this.txtObservacionesProyecto = new System.Windows.Forms.RichTextBox();
             this.txtIdProyecto = new System.Windows.Forms.TextBox();
             this.txtTituloProyecto = new System.Windows.Forms.TextBox();
-            this.txtTiempoTotalProyectos = new System.Windows.Forms.TextBox();
-            this.dtFechaProyecto = new System.Windows.Forms.DateTimePicker();
+            this.txtProyecto = new System.Windows.Forms.TextBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.mensajetool = new System.Windows.Forms.ToolTip(this.components);
             this.iconoerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtFecha = new System.Windows.Forms.TextBox();
+            this.dtFechaProyecto = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.iconoerror)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,27 +57,27 @@ namespace capapresentacion
             this.lbl_idproyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_idproyecto.Location = new System.Drawing.Point(37, 31);
             this.lbl_idproyecto.Name = "lbl_idproyecto";
-            this.lbl_idproyecto.Size = new System.Drawing.Size(126, 25);
+            this.lbl_idproyecto.Size = new System.Drawing.Size(114, 25);
             this.lbl_idproyecto.TabIndex = 1;
-            this.lbl_idproyecto.Text = "Id Proyecto:";
+            this.lbl_idproyecto.Text = "IdProyecto";
             this.lbl_idproyecto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 103);
+            this.label2.Location = new System.Drawing.Point(60, 104);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(143, 25);
+            this.label2.Size = new System.Drawing.Size(97, 25);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Tiempo Total:";
+            this.label2.Text = "Proyecto";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblObservaciones
             // 
             this.lblObservaciones.AutoSize = true;
             this.lblObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblObservaciones.Location = new System.Drawing.Point(36, 156);
+            this.lblObservaciones.Location = new System.Drawing.Point(39, 178);
             this.lblObservaciones.Name = "lblObservaciones";
             this.lblObservaciones.Size = new System.Drawing.Size(162, 25);
             this.lblObservaciones.TabIndex = 11;
@@ -86,63 +87,58 @@ namespace capapresentacion
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(308, 26);
+            this.label1.Location = new System.Drawing.Point(403, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 25);
+            this.label1.Size = new System.Drawing.Size(72, 25);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Fecha de Creación:";
+            this.label1.Text = "Fecha";
             // 
             // lblTituloProyecto
             // 
             this.lblTituloProyecto.AutoSize = true;
             this.lblTituloProyecto.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTituloProyecto.Location = new System.Drawing.Point(88, 63);
+            this.lblTituloProyecto.Location = new System.Drawing.Point(92, 68);
             this.lblTituloProyecto.Name = "lblTituloProyecto";
-            this.lblTituloProyecto.Size = new System.Drawing.Size(71, 25);
+            this.lblTituloProyecto.Size = new System.Drawing.Size(65, 25);
             this.lblTituloProyecto.TabIndex = 8;
-            this.lblTituloProyecto.Text = "Título:";
+            this.lblTituloProyecto.Text = "Título";
             this.lblTituloProyecto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtObservacionesProyecto
             // 
-            this.txtObservacionesProyecto.Location = new System.Drawing.Point(42, 194);
+            this.txtObservacionesProyecto.Location = new System.Drawing.Point(42, 217);
             this.txtObservacionesProyecto.Name = "txtObservacionesProyecto";
             this.txtObservacionesProyecto.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.txtObservacionesProyecto.Size = new System.Drawing.Size(651, 233);
+            this.txtObservacionesProyecto.Size = new System.Drawing.Size(651, 210);
             this.txtObservacionesProyecto.TabIndex = 14;
             this.txtObservacionesProyecto.Text = "";
+            this.txtObservacionesProyecto.TextChanged += new System.EventHandler(this.txtObservacionesProyecto_TextChanged);
             // 
             // txtIdProyecto
             // 
             this.txtIdProyecto.Location = new System.Drawing.Point(169, 31);
             this.txtIdProyecto.Name = "txtIdProyecto";
-            this.txtIdProyecto.Size = new System.Drawing.Size(100, 20);
+            this.txtIdProyecto.Size = new System.Drawing.Size(162, 20);
             this.txtIdProyecto.TabIndex = 15;
+            this.txtIdProyecto.TextChanged += new System.EventHandler(this.txtIdProyecto_TextChanged);
             // 
             // txtTituloProyecto
             // 
             this.txtTituloProyecto.Location = new System.Drawing.Point(169, 68);
             this.txtTituloProyecto.Name = "txtTituloProyecto";
-            this.txtTituloProyecto.Size = new System.Drawing.Size(100, 20);
+            this.txtTituloProyecto.Size = new System.Drawing.Size(162, 20);
             this.txtTituloProyecto.TabIndex = 16;
             // 
-            // txtTiempoTotalProyectos
+            // txtProyecto
             // 
-            this.txtTiempoTotalProyectos.Location = new System.Drawing.Point(169, 109);
-            this.txtTiempoTotalProyectos.Name = "txtTiempoTotalProyectos";
-            this.txtTiempoTotalProyectos.Size = new System.Drawing.Size(100, 20);
-            this.txtTiempoTotalProyectos.TabIndex = 17;
-            // 
-            // dtFechaProyecto
-            // 
-            this.dtFechaProyecto.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaProyecto.Location = new System.Drawing.Point(515, 31);
-            this.dtFechaProyecto.Name = "dtFechaProyecto";
-            this.dtFechaProyecto.Size = new System.Drawing.Size(200, 20);
-            this.dtFechaProyecto.TabIndex = 18;
+            this.txtProyecto.Location = new System.Drawing.Point(169, 109);
+            this.txtProyecto.Name = "txtProyecto";
+            this.txtProyecto.Size = new System.Drawing.Size(162, 20);
+            this.txtProyecto.TabIndex = 17;
             // 
             // btnNuevo
             // 
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Location = new System.Drawing.Point(126, 449);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(75, 23);
@@ -153,6 +149,7 @@ namespace capapresentacion
             // 
             // btnGuardar
             // 
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Location = new System.Drawing.Point(256, 449);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
@@ -163,7 +160,8 @@ namespace capapresentacion
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(400, 449);
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEditar.Location = new System.Drawing.Point(408, 449);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 21;
@@ -173,6 +171,7 @@ namespace capapresentacion
             // 
             // btnCancelar
             // 
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Location = new System.Drawing.Point(542, 449);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
@@ -185,17 +184,35 @@ namespace capapresentacion
             // 
             this.iconoerror.ContainerControl = this;
             // 
+            // txtFecha
+            // 
+            this.txtFecha.Location = new System.Drawing.Point(489, 25);
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(204, 20);
+            this.txtFecha.TabIndex = 23;
+            // 
+            // dtFechaProyecto
+            // 
+            this.dtFechaProyecto.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaProyecto.Location = new System.Drawing.Point(489, 65);
+            this.dtFechaProyecto.Name = "dtFechaProyecto";
+            this.dtFechaProyecto.Size = new System.Drawing.Size(204, 20);
+            this.dtFechaProyecto.TabIndex = 18;
+            this.dtFechaProyecto.ValueChanged += new System.EventHandler(this.dtFechaProyecto_ValueChanged);
+            // 
             // FrmDetalleProyecto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(781, 494);
+            this.Controls.Add(this.txtFecha);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dtFechaProyecto);
-            this.Controls.Add(this.txtTiempoTotalProyectos);
+            this.Controls.Add(this.txtProyecto);
             this.Controls.Add(this.txtTituloProyecto);
             this.Controls.Add(this.txtIdProyecto);
             this.Controls.Add(this.txtObservacionesProyecto);
@@ -224,13 +241,14 @@ namespace capapresentacion
         private System.Windows.Forms.RichTextBox txtObservacionesProyecto;
         private System.Windows.Forms.TextBox txtIdProyecto;
         private System.Windows.Forms.TextBox txtTituloProyecto;
-        private System.Windows.Forms.TextBox txtTiempoTotalProyectos;
-        private System.Windows.Forms.DateTimePicker dtFechaProyecto;
+        private System.Windows.Forms.TextBox txtProyecto;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ToolTip mensajetool;
         private System.Windows.Forms.ErrorProvider iconoerror;
+        private System.Windows.Forms.TextBox txtFecha;
+        private System.Windows.Forms.DateTimePicker dtFechaProyecto;
     }
 }

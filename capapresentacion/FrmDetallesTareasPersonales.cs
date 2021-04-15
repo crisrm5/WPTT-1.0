@@ -10,9 +10,10 @@ using System.Windows.Forms;
 
 namespace capapresentacion
 {
-    public partial class FrmDetalleSubtarea : Form
+    public partial class FrmDetallesTareasPersonales : Form
     {
-        public FrmDetalleSubtarea()
+        public FrmPrincipal1 frmparent;
+        public FrmDetallesTareasPersonales()
         {
             InitializeComponent();
         }

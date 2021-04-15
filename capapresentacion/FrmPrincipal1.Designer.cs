@@ -230,7 +230,7 @@ namespace capapresentacion
             this.Subtareas.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
             this.Subtareas.Size = new System.Drawing.Size(200, 60);
             this.Subtareas.TabIndex = 3;
-            this.Subtareas.Text = "Subtareas";
+            this.Subtareas.Text = "Tareas Personales";
             this.Subtareas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Subtareas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Subtareas.UseVisualStyleBackColor = true;
@@ -293,6 +293,7 @@ namespace capapresentacion
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // FrmPrincipal1
             // 

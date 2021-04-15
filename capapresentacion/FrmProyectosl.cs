@@ -13,9 +13,9 @@ using capanegocio;
 
 namespace capapresentacion
 {
-    public partial class FrmProyectosl : Form
+    public partial class FrmProyectos : Form
     {
-        public FrmProyectosl()
+        public FrmProyectos()
         {
             InitializeComponent();
             btnEliminarProyecto.FlatAppearance.BorderColor = Color.FromArgb(0, 255, 255, 255);
@@ -35,21 +35,21 @@ namespace capapresentacion
 
         private void P_btnBuscar_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-           mostrarproyectos();
-           this.FormClosed += new FormClosedEventHandler(cerrarX);
+            mostrarproyectos();
+            this.FormClosed += new FormClosedEventHandler(cerrarX);
         }
 
         public void mostrarproyectos()
         {
-             this.dataListProyectos.DataSource = NProyecto.mostrarproyectos();
-             this.ocultarcolumnas();
+            this.dataListProyectos.DataSource = NProyecto.mostrarproyectos();
+            this.ocultarcolumnas();
             this.btnEliminarProyecto.Visible = true;
-            this.lblTotal.Text = "Número de proyectos: "+Convert.ToString(dataListProyectos.Rows.Count);
+            this.lblTotal.Text = "Número de proyectos: " + Convert.ToString(dataListProyectos.Rows.Count);
         }
 
         private void ocultarcolumnas()
@@ -60,7 +60,7 @@ namespace capapresentacion
             this.cbEliminar.Checked = false;
 
         }
-                                          
+
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -70,34 +70,34 @@ namespace capapresentacion
         {
             try
             {
-                    DialogResult opcion;
-                    opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                    if (opcion == DialogResult.OK)
-                    {
+                DialogResult opcion;
+                opcion = MessageBox.Show("¿Desea continuar?", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (opcion == DialogResult.OK)
+                {
                     int aux = 0;
-                        int id;
-                        string rpta = "";
-                        foreach (DataGridViewRow row in dataListProyectos.Rows)
-                        {                          
-                            if (Convert.ToBoolean(row.Cells[0].Value))
-                            {
+                    int id;
+                    string rpta = "";
+                    foreach (DataGridViewRow row in dataListProyectos.Rows)
+                    {
+                        if (Convert.ToBoolean(row.Cells[0].Value))
+                        {
                             aux = 1;
-                            
-                            id = Convert.ToInt32(row.Cells[1].Value);
-                                rpta = NProyecto.eliminarproyecto(id);
 
-                                if (rpta.Equals("OK"))
-                                {
-                                    this.mensajeok("Registro eliminado");
-                                }
-                                else
-                                {
-                                    this.mensajeerror("¡Ups!, Al parecer tienes tareas asignadas a este proyecto...");
-                                    this.mensajeerror(rpta);
-                                }
-                        }                           
+                            id = Convert.ToInt32(row.Cells[1].Value);
+                            rpta = NProyecto.eliminarproyecto(id);
+
+                            if (rpta.Equals("OK"))
+                            {
+                                this.mensajeok("Registro eliminado");
+                            }
+                            else
+                            {
+                                this.mensajeerror("¡Ups!, Al parecer tienes tareas asignadas a este proyecto...");
+                                this.mensajeerror(rpta);
+                            }
                         }
-                    if (aux<1)
+                    }
+                    if (aux < 1)
                     {
                         MessageBox.Show("No haz seleccionado ningún proyecto", "Eliminar Proyecto", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                     }
@@ -143,7 +143,7 @@ namespace capapresentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            frmparent.lanzarNuevoProyecto();
+            frmparent.lanzarNuevoProyecto(new FrmDetalleProyecto());
         }
 
         private void cerrarX(object sender, EventArgs e)
@@ -166,7 +166,7 @@ namespace capapresentacion
             ShowInTaskbar = false;
             this.Text = String.Empty;
             this.ControlBox = false;
-            
+
 
         }
         /*Utilizado para mover el panel atraves de la pantalla*/
@@ -176,8 +176,18 @@ namespace capapresentacion
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         private void FrmPrincipal_MouseDown(object sender, MouseEventArgs e)
         {
-                ReleaseCapture();
-                SendMessage(this.Handle, 0x112, 0xf012, 0);
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ControlPestanias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
         /*fin del drag*/
     }
